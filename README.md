@@ -41,4 +41,5 @@ The animation at the top was generated using this xml:
 ```
 
 And this sprite-sheet (scaled 8x):
+
 ![Example sprite sheet, scaled 8x](http://i.imgur.com/Nsid1E8.png)
