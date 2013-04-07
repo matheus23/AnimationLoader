@@ -13,6 +13,19 @@ A backend for Java2D was implemented in the package org.matheusdev.animationSwin
 The animation at the top was generated using this xml:
 ```xml
 <resources>
+   <filters>
+       <filtergroup name="make-cool-filter">
+           <filter name="expand(4, 4)" />
+           <filter name="scale(4, 4)" />
+           <filter name="voxelize(4, 4 with 0.02, 0.02, 0.02, 1)" />
+           <filter name="scale(2, 2)" />
+           <filter name="outline(0, 0, 0, 1)" />
+           <branch merge="blend(bottom over top)" >
+              <filter name="colorize(0, 0, 0, 1)" />
+              <filter name="blur(8, 8, 16)" />
+           </branch>
+       </filtergroup>
+   </filters>
    <images>
       <image file="sheet.png">
          <!-- Sorcerer -->
@@ -20,15 +33,7 @@ The animation at the top was generated using this xml:
             <filters>
                <filter name="replace(255, 255, 255, 255 with 1, 1, 1, 0 range 2)" />
                <filter name="colorize_grayscale(0.4, 0.9, 0.3, 1)" />
-               <filter name="expand(4, 4)" />
-               <filter name="scale(4, 4)" />
-               <filter name="voxelize(4, 4 with 0.02, 0.02, 0.02, 1)" />
-               <filter name="scale(2, 2)" />
-               <filter name="outline(0, 0, 0, 1)" />
-               <branch merge="blend(bottom over top)" >
-                  <filter name="colorize(0, 0, 0, 1)" />
-                  <filter name="blur(8, 8, 16)" />
-               </branch>
+               <filtergroup name="make-cool-filter" />
             </filters>
             <frame bounds="0 0 16 16" />
             <frame bounds="16 0 16 16" />
