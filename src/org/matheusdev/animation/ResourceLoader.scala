@@ -4,6 +4,7 @@ import collection.mutable
 import filter._
 import java.io.File
 import scala.Some
+import org.matheusdev.properties.FileProperty
 
 /*
  * Created with IntelliJ IDEA.
@@ -17,10 +18,10 @@ trait ResourceLoader[I <: Image[I,_],L] {
   protected val animations = new mutable.HashMap[String, AnimationData[I]]()
 
   def region(name: String) = regions.get(name).getOrElse(
-    throw new IllegalArgumentException("There is no region available for the name \"$name\""))
+    throw new IllegalArgumentException(s"There is no region available for the name '$name'"))
 
   def animation(name: String) = animations.get(name).getOrElse(
-    throw new IllegalArgumentException("There is no animation available for the name \"$name\""))
+    throw new IllegalArgumentException(s"There is no animation available for the name '$name'"))
 
   def allAnimations = animations
   def allRegions = regions

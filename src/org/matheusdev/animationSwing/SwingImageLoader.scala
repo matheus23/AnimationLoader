@@ -16,11 +16,11 @@ import org.matheusdev.util.FastBlurFilter
  */
 class SwingImageLoader extends ImageLoader[SwingImage] {
   val nativeFilters = new mutable.HashMap[String, Filter[SwingImage, _]]()
-  nativeFilters.put("fastblur",
-    new NativeFastBlur())
+  nativeFilters.put("fastblur", new NativeFastBlur())
 
-  def loadImage(file: File) =
-    new SwingImage(ImageIO.read(file))
+  val loadedImages = new mutable.HashMap[String, SwingImage]()
+
+  def loadImage(file: File) = new SwingImage(ImageIO.read(file))
 
   def createEmptyImage(width: Int, height: Int) =
     new SwingImage(new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB))
