@@ -1,0 +1,72 @@
+<!-- Example:
+<resources>
+    <filterdefs>
+        <filtergroup name="...">
+            <filter name="..." />
+            <branch merge="...">
+                <filter name="..." />
+                <branch merge="...">
+                    ...
+                </branch>
+            </branch>
+        </filtergroup>
+
+        <filtergroup>
+            ...
+        </filtergroup>
+    </filterdefs>
+
+    <images>
+        <image file="...">
+            <region name="..." bounds="x y w h" />
+            <region name="..." bounds="x y w h">
+                <filters>
+                    <filter name="..." />
+                    <filterref name="..." />
+                    <branch merge="...">
+                        ...
+                    </branch>
+                </filters>
+            </region>
+
+            <animation name="..." delay="...">
+                <filters>
+                    ...
+                </filters>
+                <frame bounds="x y w h" />
+                <frame bounds="x y w h" delay="..." />
+            </animation>
+
+            <animation name="..." delay="...">
+                ...
+            </animation>
+        </image>
+        <image file="...">
+            ...
+        </image>
+    </images>
+</resources>
+-->
+<!DOCTYPE resources [
+        <!ELEMENT resources (filterdefs?|images)>
+        <!ELEMENT filterdefs (filtergroup)*>
+        <!ELEMENT filtergroup (filter|branch)*>
+        <!ELEMENT filter (#PCDATA)>
+        <!ELEMENT branch (filter|branch)*>
+        <!ELEMENT images (image)*>
+        <!ELEMENT image (animation|region)*>
+        <!ELEMENT region (filters?)>
+        <!ELEMENT animation (filters?|frame+)>
+        <!ELEMENT frame (#PCDATA)>
+        <!ELEMENT filters (filter|filterref|branch)*>
+        <!ELEMENT filterref (#PCDATA)>
+
+        <!ATTLIST filtergroup name CDATA #REQUIRED>
+        <!ATTLIST image file ID #REQUIRED>
+        <!ATTLIST region name ID #REQUIRED bounds CDATA #REQUIRED>
+        <!ATTLIST animation name ID #REQUIRED delay CDATA #REQUIRED>
+        <!ATTLIST frame bounds CDATA #REQUIRED delay CDATA #IMPLIED>
+        <!ATTLIST filter name CDATA #REQUIRED>
+        <!ATTLIST branch merge CDATA #REQUIRED>
+        <!ATTLIST filterref name CDATA #REQUIRED>
+        ]
